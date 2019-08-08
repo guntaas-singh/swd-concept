@@ -1,0 +1,13 @@
+{% extends "userDash/staff_layout.html" %}
+
+{% block content2 %}
+<div class="container">
+  <form class="form-group" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input class="btn btn-primary" type="submit" name="update" value="Update">
+  </form>
+
+</div>
+{% endblock %}

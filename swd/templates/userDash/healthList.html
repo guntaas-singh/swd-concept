@@ -1,0 +1,14 @@
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <th>Batch</th>
+    <th>ID</th>
+    <th>Name</th>
+  </thead>
+  {% for userprofile in list %}
+  <tr>
+    <td>{{ userprofile.health }}</td>
+    <td>{{ userprofile.bitsId }}</td>
+    <td>{{ userprofile.user.first_name }} {{ userprofile.user.last_name }}</td>
+  </tr>
+  {% endfor %}
+</table>

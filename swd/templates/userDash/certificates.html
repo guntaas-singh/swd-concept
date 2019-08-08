@@ -1,0 +1,46 @@
+{% extends "userDash/layout.html" %}
+{% load staticfiles %}
+{% block content2 %}
+  <div class="container" style="margin-top:20px;">
+
+    <div class="jumbotron" style="background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url({% static 'img/jumbotron/cert.png' %});color:white;background-size:cover;">
+      <h1>Certificates</h1>
+    </div>
+
+
+    <form class="form-group" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+    </form>
+
+  </div>
+  <div class="container">
+    <h1>Certificate Application Status</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <th>Request ID</th>
+        <th>Certificate Type</th>
+        <th>Time of Application</th>
+        <th>Status</th>
+      </thead>
+      {% for entry in list %}
+      <tr>
+        <td>{{ entry.certId }}</td>
+        <td>{{ entry.certType }}</td>
+        <td>{{ entry.appDate }}</td>
+        {% if entry.isDelivered %}
+        <td><span class="badge badge-success">Delivered</span></td>
+        {% elif entry.isPrepared %}
+        <td><span class="badge badge-primary">Prepared</span></td>
+        {% elif entry.isRejected %}
+        <td><span class="badge badge-danger">Rejected</span></td>
+        {% else %}
+        <td><span class="badge badge-info">Queued</span></td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </table>
+
+  </div>
+{% endblock %}

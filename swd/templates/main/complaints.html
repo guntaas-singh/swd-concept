@@ -1,0 +1,41 @@
+{% extends "main/layout.html" %}
+
+{% block content %}
+<div class="row container" style="margin:auto;margin-top:20px;">
+  <div class="col-md-6">
+    <h1>Anti Ragging</h1>
+    <ul>
+      <a href="https://swd.bits-pilani.ac.in/Files/SupremeCourtOrder.pdf"><li>Supreme Court Order</li></a>
+      <a href="https://swd.bits-pilani.ac.in/Files/UGCRegulation.pdf"><li>UGC Regulations 2009</li></a>
+      <a href="https://swd.bits-pilani.ac.in/Files/BitsOrder.pdf"><li>BITS Office Order</li></a>
+      <a href="https://swd.bits-pilani.ac.in/Files/Pilani_Campus_SWD_Anti_Ragging_Poster.pdf"><li>Rules</li></a>
+    </ul>
+    <h2>Anti Ragging Committees and Squads</h2>
+    <ul>
+      <a href="https://swd.bits-pilani.ac.in/Files/Institute_Level_Committe.pdf"><li>Institute Level Committee</li></a>
+      <a href="https://swd.bits-pilani.ac.in/Files/Institute_Level_Squad.pdf"><li>Institute Level Squad</li></a>
+      <a href="https://swd.bits-pilani.ac.in/Files/Antiragging_Hostel_Level.pdf"><li>Hostel Level Squad</li></a>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <!-- <form method="POST">
+    <div class="form-group">
+      <textarea class="form-control" id="complaint" rows="6" style="margin-top:20px;">Please type your complain/report in this box.
+
+Your report will be mailed to Associate Dean SWD directly, and anonymously. If you do not wish to be anonymous, include your Name/IDNO in the report itself.
+</textarea>
+      <p class="form-text text-muted">This service is for your benefit, please do not misuse it.</p>
+
+      <button type="submit" class="btn btn-primary" name="compSubmit">Submit</button>
+    </div>
+    </form> -->
+    <form class="form-group" method="post">
+      <h1 style="margin-bottom:20px;">File a Complaint</h1>
+      {{ form.as_p }}
+      {% csrf_token %}
+      <p class="form-text text-muted">This service is for your benefit, please do not misuse it.</p>
+      <input type="submit" name="" class="btn btn-primary" value="Submit">
+    </form>
+  </div>
+</div>
+{% endblock %}

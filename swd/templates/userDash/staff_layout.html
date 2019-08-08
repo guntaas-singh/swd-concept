@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr" style="overflow-y: scroll;">
+  <head>
+    <meta charset="utf-8">
+    <title>Student Welfare Division</title>
+    <!-- BootstrapCDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+    {% block headspace %}
+    {% endblock %}
+    <style media="screen">
+      .custom-font {
+        font-family:"Roboto";
+      }
+    </style>
+  </head>
+  <body>
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-font">
+      <div class="container">
+        <a class="navbar-brand" href="{% url "index" %}">
+          <img src="{% static "img/logo-trans-60-60.png" %}" width="30" height="30" alt="BITS" style="margin-right: 7px;" class="d-inline-block align-top">
+            SWD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                External Links
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://www.su-bitspilani.org/">Student Union</a>
+                <a class="dropdown-item" href="http://www.ssms-pilani.org/">SSMS</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://nalanda.bits-pilani.ac.in">Nalanda</a>
+                <a class="dropdown-item" href="id/">Instruction Division</a>
+                <a class="dropdown-item" href="https://erp.bits-pilani.ac.in/">ERP</a>
+                <a class="dropdown-item" href="http://www.bits-pilani.ac.in:12354/">Library Portal</a>
+
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://swd.bits-pilani.ac.in/Files/Rules_Guidelines_2015.pdf">Rules and Guidelines</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "complaints" %}">Complaints</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "contactus" %}">Contact Us</a>
+            </li>
+
+          </ul>
+
+          <a href="{% url "logout" %}" class="btn btn-outline-success my-2 my-sm-0" id="logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "staff" %}">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "staffDues" %}">Update Dues</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/swd/staff/vendors">Add Vendor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/swd/staff/certificates">Certificate Queue</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'staffClubs' %}">RAF and Clubs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Mess and ID Card</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+    {% block content2 %}
+    {% endblock %}
+
+    <!-- JS scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
