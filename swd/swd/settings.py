@@ -27,7 +27,7 @@ SECRET_KEY = 'cmw=96@-hwi3swg8k30efbn$uqytzx^(9_8g7=6^w%5&8gcne9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://swd-concept.herokuapp.com', ]
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,6 +81,9 @@ WSGI_APPLICATION = 'swd.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+import dj_database_url
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
 DATABASES = {
     'default': {
@@ -140,6 +144,7 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 
 ]
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Media Files
 MEDIA_ROOT = MEDIA_DIR
